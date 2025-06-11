@@ -3,7 +3,7 @@ Import-Module 'Microsoft.PowerShell.Security'
 
 $users = Import-Csv -Delimiter ";" -Path "C:\docs\script\import.csv"
 
-#********************Creation des OU********************************
+#********************Création des OU********************************
 
 New-ADOrganizationalUnit -Name "Ligues" -Path "dc=imcsio2,dc=fr"
 New-ADOrganizationalUnit -Name "Londres" -Path "ou=Ligues,dc=imcsio2,dc=fr"
@@ -41,7 +41,7 @@ foreach ($user in $users){
 
    }
 
-   # ********Creation des Groupes*********
+   # ********Création des Groupes*********
 
 New-ADGroup -Name MMA -GroupScope Global -GroupCategory Security -Path "ou=Ligues,dc=imcsio2,dc=fr"
 New-ADGroup -Name Boxe -GroupScope Global -GroupCategory Security -Path "ou=Ligues,dc=imcsio2,dc=fr"
